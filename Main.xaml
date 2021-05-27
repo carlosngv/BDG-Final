@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="948.8,4092.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,3448" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="38">
+    <scg:List x:TypeArguments="x:String" Capacity="41">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,10 +39,13 @@
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
       <x:String>System.Windows.Controls</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -77,6 +80,7 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -84,7 +88,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="959.2,4402.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="786,3283" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:UiElement" Name="varBrowser" />
       <Variable x:TypeArguments="x:String" Name="clienteStr" />
@@ -92,19 +96,21 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dataDT" />
       <Variable x:TypeArguments="x:TimeSpan" Name="dateAux" />
       <Variable x:TypeArguments="s:DateTime" Name="currentTime" />
+      <Variable x:TypeArguments="x:String" Name="proveedorStr" />
+      <Variable x:TypeArguments="x:String" Name="cuerpoCorreo" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Manage access" sap:VirtualizedContainerService.HintSize="917.6,4309.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OutUiElement="[varBrowser]" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Manage access" sap:VirtualizedContainerService.HintSize="744,51" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OutUiElement="[varBrowser]" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="884,4092.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="538,429" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="historial" />
             </Sequence.Variables>
@@ -114,7 +120,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InjectJsScript InputParameter="{x:Null}" DisplayName="Inject Js Script 'push button'" sap:VirtualizedContainerService.HintSize="842.4,135.2" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" ScriptCode="function languaje (){&#xA;&#x9;return  window.navigator.language || navigator.browserLanguage;&#xA;}">
+            <ui:InjectJsScript InputParameter="{x:Null}" DisplayName="Inject Js Script 'push button'" sap:VirtualizedContainerService.HintSize="496,134" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" ScriptCode="function languaje (){&#xA;&#x9;return  window.navigator.language || navigator.browserLanguage;&#xA;}">
               <ui:InjectJsScript.ScriptOutput>
                 <OutArgument x:TypeArguments="x:String">[salidaJS]</OutArgument>
               </ui:InjectJsScript.ScriptOutput>
@@ -129,15 +135,14 @@
                 </ui:Target>
               </ui:InjectJsScript.Target>
             </ui:InjectJsScript>
-            <ui:BuildDataTable DataTable="[historial]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="842.4,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_venta&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Contacto&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Teléfono&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Correo&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Vendedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Componente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;tipo_x0020_licencia_x0020_o_x0020_servicio&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;500&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Cantidad&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_de_x0020_activación&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_de_x0020_vencimiento&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;días_x0020_pendientes&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;_x0023__x0020_Licencia&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Comentarios&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_No.&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-            <Switch x:TypeArguments="x:String" DisplayName="Cambiar" Expression="[salidaJS]" sap:VirtualizedContainerService.HintSize="842.4,3723.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-              <Sequence x:Key="es-419" DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,676" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Switch x:TypeArguments="x:String" DisplayName="Cambiar" Expression="[salidaJS]" sap:VirtualizedContainerService.HintSize="496,161" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Sequence x:Key="es-419" DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,672" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="333.6,167.2" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://excel.officeapps.live.com/x/_layouts/xlviewerinternal.aspx?unified=1&amp;ui=es%2DES&amp;rs=es%2DES&amp;wopisrc=https%3A%2F%2Flicenciasbdg2-my.sharepoint.com%2Fpersonal%2Fjmansilla_licenciasbdg2_onmicrosoft_com%2F_vti_bin%2Fwopi.ashx%2Ffiles%2F4fb085d26886498e9fe16a4543e5b257&amp;wdenableroaming=1&amp;mscc=0&amp;wdodb=1&amp;hid=00000000-0000-0000-0000-000000000000&amp;wdorigin=Sharing&amp;jsapi=1&amp;jsapiver=v1&amp;newsession=1&amp;corrid=b756d775-b103-46f7-a3d1-7470757d7f52&amp;usid=b756d775-b103-46f7-a3d1-7470757d7f52&amp;sftc=1&amp;mtf=1&amp;sfp=1&amp;wdredirectionreason=Force_SingleStepBoot&amp;preseededsessionkey=444894f6-7a0e-c7fb-829e-53a3183c1a3c&amp;preseededwacsessionid=3209f22a-66ea-1646-6d67-e5afc5fde1c4&amp;rct=Medium&amp;ctp=LeastProtected" DesignTimeRectangle="8, 127, 91, 31" ElementType="Button" FriendlyName="'Archivo'" FullSelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl parentid='FileMenuLauncherContianer' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl parentid='FileMenuLauncherContianer' tag='BUTTON' type='button' aaname='Archivo' check:text='Archivo' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAjCAYAAADyrNZPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVGhD7dRNMgUxFAVgS7AH7AJVVoAVYI4xygx7wBBbwAxL8J4VYITRYwHhtHPUrVS8n/LSF3Vf1alO3yTd8kVnQr/08ZvcXYi0GNIHvkdI/4n/9tqLtBjSB75HSB/4HiF94HuE9IHvEdIHvkdIH/geIX3ge4T0ge8R0ge+R0gf+B4hfTv43c5tmp+bTTfXV8X+YXN2epIO9veKfQj6+vX/lpC+HXyh/BRmEP5fCenr4z8+3KfNjfV01+2ktdWV5isojRsmgT9icNQIDFcAqu/l+anZmOOjw+ZYQhs1jZ2ZnmqyvLTYbKLwbZ99nvr1XHvM5TVc9QwE8zS2dkhfHx+Lsgu2wAKxNc2xGJcX51/4gLLPw6bpaxJ+3tZYvSefp7/DbmTNkL4uPhaHowZwuMfVHj1atDBLc2xy0Hy+7c+fg7pwbVuxm2PrNUL6uvhYoP20FQGV8PshjIKPoI0+bADG4Vp6J9Jv08cd0tfDH2aRpTHj+s9HUNcG5JuCsbpH8N6d7a3mmbZeI6Svh/8dogUr4atmseyZb+uD8DEH/fk70P7XZz4QLIQNFonFCsfCIMLQMYU2aqPiI7jXfFvHHHsUtgWPkL7umR8ph/SB7xHSB75HSB/4HiF94HuE9IHvEdIHvkdIH/geIX3ge4T0ge8R0ge+R0gf+O2nl94BErldNHQ1N0sAAAAASUVORK5CYII=" InformativeScreenshot="15bd0a9f958c2d4c2ebeab06b546a957.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Control de licencias RPA.xlsx' /&gt;" SearchSteps="FuzzySelector, Image">
                       <uix:TargetAnchorable.Anchors>
@@ -148,7 +153,7 @@
                     </uix:TargetAnchorable>
                   </uix:NClick.Target>
                 </uix:NClick>
-                <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click 'Save As'" sap:VirtualizedContainerService.HintSize="333.6,167.2" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click 'Save As'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://excel.officeapps.live.com/x/_layouts/xlviewerinternal.aspx?unified=1&amp;ui=es%2DES&amp;rs=es%2DES&amp;wopisrc=https%3A%2F%2Flicenciasbdg2-my.sharepoint.com%2Fpersonal%2Fjmansilla_licenciasbdg2_onmicrosoft_com%2F_vti_bin%2Fwopi.ashx%2Ffiles%2F4fb085d26886498e9fe16a4543e5b257&amp;wdenableroaming=1&amp;mscc=0&amp;wdodb=1&amp;hid=00000000-0000-0000-0000-000000000000&amp;wdorigin=Sharing&amp;jsapi=1&amp;jsapiver=v1&amp;newsession=1&amp;corrid=b756d775-b103-46f7-a3d1-7470757d7f52&amp;usid=b756d775-b103-46f7-a3d1-7470757d7f52&amp;sftc=1&amp;mtf=1&amp;sfp=1&amp;wdredirectionreason=Force_SingleStepBoot&amp;preseededsessionkey=444894f6-7a0e-c7fb-829e-53a3183c1a3c&amp;preseededwacsessionid=3209f22a-66ea-1646-6d67-e5afc5fde1c4&amp;rct=Medium&amp;ctp=LeastProtected" DesignTimeRectangle="8, 191, 160, 36" ElementType="Button" FriendlyName="'Guardar como'" FullSelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl aria-role='listitem' id='FileSaveAsPage' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl aria-role='listitem' id='FileSaveAsPage' tag='BUTTON' type='button' aaname='Guardar como' check:text='Guardar como' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKQAAAAoCAYAAABwx1HiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL7SURBVHhe7Zq9ihRBFEZ9A30fI1/A1zAVY2MDH8JgYw3FSDQSBAURQRFEDVwQRRRZUBRaT8/95E7Z0zMd7FzH+j44bHff+mm2DzW9NXtGGX7n7OXzxuydnNBxJaTjVCd0XAl57uoFY0pQQkcLaWpRQkcLaWpRQkcLaWpRQkcLaWpRQkcLaWpRQse+hXzx/s34y8g5enR7su1pcP/V4/Eepmq9oISOfQp56ea14eu3k79kQEYkyddOEwtpIUeQYJ/ibcJCWsjh+r2j4ePJ53GVnKqLVpaLN64Mx18+/PlI17nCiqsx+ckcD98+G2sah74K7Z+8e7k2B3PmtHMx3vefP8ZjrqnfIaOEjv0JyUPe5YFuExKx7zx/sFbTqjv1SkC/LC39kUttGAPhdF+MpfvU+Lvc96GhhI4WEpBCkSDbhGzJ7bVCIp3q1CSsaOfI5JV829yHjBI6+iM7kwXZRUjqOWrfCrlJqHYO6jlaUS3kf8zcw10iJDXaqJ7b77pCck19GJfxmYdzr5AdwcPm/a0VJEvFw8/vfNQI11tBdD4nJP3n3iHz3G17C9kBPGgeeE4WBhBE4Q+OLAU/FcR6/el4VkiQ1ISxGDP3yffDeF4hjdkzSuhoIU0tSuhoIU0tSuhoIU0tSuhoIU0tSuhoIU0tSuhoIU0tSujYr5B5jzHvP+b9RZI3q7W/yD9VsPdI2FvMe4jtXmaukbbeO0ro2KeQSJZFu/X07igJMiKaNrS1IY10nEsurlHTty2SbFN7nQPH6q9rPaOEjv0JiUT6BqStIWmWB5BUAtEnfwPTCggcS/bcV/V2jN5RQsf+hJySBCQX9Xw9CzwlE/LlPlnIfCw2zdMrSujoFTIztULSnu+VEWmpkFPyc8x4eYyeUULH/oTUCpVXriXvkEuEpL3fIedRQsc+/6iRaEoWBLlyskxLhQRJqVjGdZTQsU8hzb+DEjpaSFOLEjpaSFOLEjpaSFOLEjpaSFOLEjpaSFOLEjpaSFOLEjpaSFPLKsPwC2qxVjrGy3KbAAAAAElFTkSuQmCC" InformativeScreenshot="6aa541fb46308570fe6650506267741d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Control de licencias RPA.xlsx' /&gt;" SearchSteps="FuzzySelector, Image">
                       <uix:TargetAnchorable.Anchors>
@@ -159,7 +164,7 @@
                     </uix:TargetAnchorable>
                   </uix:NClick.Target>
                 </uix:NClick>
-                <uix:NClick ClickType="Single" DisplayName="Click 'Download a Copy'" sap:VirtualizedContainerService.HintSize="333.6,167.2" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick ClickType="Single" DisplayName="Click 'Download a Copy'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://excel.officeapps.live.com/x/_layouts/xlviewerinternal.aspx?unified=1&amp;ui=es%2DES&amp;rs=es%2DES&amp;wopisrc=https%3A%2F%2Flicenciasbdg2-my.sharepoint.com%2Fpersonal%2Fjmansilla_licenciasbdg2_onmicrosoft_com%2F_vti_bin%2Fwopi.ashx%2Ffiles%2F4fb085d26886498e9fe16a4543e5b257&amp;wdenableroaming=1&amp;mscc=0&amp;wdodb=1&amp;hid=00000000-0000-0000-0000-000000000000&amp;wdorigin=Sharing&amp;jsapi=1&amp;jsapiver=v1&amp;newsession=1&amp;corrid=b756d775-b103-46f7-a3d1-7470757d7f52&amp;usid=b756d775-b103-46f7-a3d1-7470757d7f52&amp;sftc=1&amp;mtf=1&amp;sfp=1&amp;wdredirectionreason=Force_SingleStepBoot&amp;preseededsessionkey=444894f6-7a0e-c7fb-829e-53a3183c1a3c&amp;preseededwacsessionid=3209f22a-66ea-1646-6d67-e5afc5fde1c4&amp;rct=Medium&amp;ctp=LeastProtected" DesignTimeRectangle="199, 172, 566, 56" ElementType="Button" FriendlyName="'Descargar una'" FullSelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl aria-role='listitem' parentid='ReactTabbedPanelMenuPageContainer' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl aria-role='listitem' parentid='ReactTabbedPanelMenuPageContainer' tag='BUTTON' type='button' aaname='Descargar una copiaDescargue una copia en el equipo.' check:text='Descargar una copiaDescargue una copia en el equipo.' /&gt;" ImageBase64="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" InformativeScreenshot="5c43be00b43eb2c2fa187463f5f07b30.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Control de licencias RPA.xlsx' /&gt;" SearchSteps="FuzzySelector, Image">
                       <uix:TargetAnchorable.Anchors>
@@ -172,307 +177,27 @@
                   </uix:NClick.Target>
                 </uix:NClick>
               </Sequence>
-              <Sequence x:Key="en-US" DisplayName="Do" sap:VirtualizedContainerService.HintSize="802.4,3509.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence x:Key="en-US" DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,672" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uix:NClick ClickType="Single" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="760.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick ClickType="Single" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://excel.officeapps.live.com/x/_layouts/xlviewerinternal.aspx?unified=1&amp;ui=en%2DUS&amp;rs=es%2DES&amp;wopisrc=https%3A%2F%2Flicenciasbdg2-my.sharepoint.com%2Fpersonal%2Fjmansilla_licenciasbdg2_onmicrosoft_com%2F_vti_bin%2Fwopi.ashx%2Ffiles%2F4fb085d26886498e9fe16a4543e5b257&amp;wdenableroaming=1&amp;mscc=0&amp;wdodb=1&amp;hid=D9F4C99F-C02C-0000-BEF9-7D018CE95776&amp;wdorigin=Sharing&amp;jsapi=1&amp;jsapiver=v1&amp;newsession=1&amp;corrid=62535d70-8b08-4be5-9c33-9e60f7d79ee2&amp;usid=62535d70-8b08-4be5-9c33-9e60f7d79ee2&amp;sftc=1&amp;mtf=1&amp;sfp=1&amp;wdredirectionreason=Force_SingleStepBoot&amp;rct=Medium&amp;ctp=LeastProtected" DesignTimeRectangle="37, 205, 26, 23" ElementType="Text" FriendlyName="'File'" FullSelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl id='id__1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl id='id__1' tag='SPAN' type='' aaname='File' check:text='File' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAbCAYAAABr/T8RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADOSURBVEhL7ZLREQExEIb1gi7QwtEHmkAjxyNKQAnoAE94OgpY89/MZnaS3PGwkmHy8E0ms//mS/au8XwUFIMkDkYSB+M3xcfDnnrdDu22G2+9DiO+3640Hg2p3Wo6LOZ5mcE66Gd0OZ/Kvap4Np04ISaa2Ob/xZ+OGjnfPyJRF6Pfl7HljljeFKAJzci8E9dNQPYB1RejjjNwluxDXT4AqIrRa0+M+aq46sU+VMW+kVahKuYzZIZz69XS7IGqmLG/tX0RYMShSeJgRBIX9ALKhVPzAC1caAAAAABJRU5ErkJggg==" InformativeScreenshot="aac14b6ee801c8eae9db2ce96f9bac69.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Control de licencias RPA.xlsx' /&gt;" SearchSteps="FuzzySelector, Image" />
                   </uix:NClick.Target>
                 </uix:NClick>
-                <uix:NClick ClickType="Single" DisplayName="Click 'Save As'" sap:VirtualizedContainerService.HintSize="760.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick ClickType="Single" DisplayName="Click 'Save As'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://excel.officeapps.live.com/x/_layouts/xlviewerinternal.aspx?unified=1&amp;ui=en%2DUS&amp;rs=es%2DES&amp;wopisrc=https%3A%2F%2Flicenciasbdg2-my.sharepoint.com%2Fpersonal%2Fjmansilla_licenciasbdg2_onmicrosoft_com%2F_vti_bin%2Fwopi.ashx%2Ffiles%2F4fb085d26886498e9fe16a4543e5b257&amp;wdenableroaming=1&amp;mscc=0&amp;wdodb=1&amp;hid=00000000-0000-0000-0000-000000000000&amp;wdorigin=Sharing&amp;jsapi=1&amp;jsapiver=v1&amp;newsession=1&amp;corrid=0d9274f7-1612-4711-8907-5b397120ad99&amp;usid=0d9274f7-1612-4711-8907-5b397120ad99&amp;sftc=1&amp;mtf=1&amp;sfp=1&amp;wdredirectionreason=Force_SingleStepBoot&amp;preseededsessionkey=0d3ed9f4-c444-bed9-7ba0-b296180acb8a&amp;preseededwacsessionid=4c4affcc-6541-1cca-b2b1-3c0eaeeea49c&amp;rct=Medium&amp;ctp=LeastProtected" DesignTimeRectangle="22, 278, 175, 43" FriendlyName="'Save As'" FullSelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl parentid='FileSaveAsPage' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl parentid='FileSaveAsPage' tag='SPAN' type='' aaname='' check:text='Save As' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAvCAYAAACosPvLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKBSURBVHhe7ZuxalVBEIbvG8T3scoL+Bq2wdo6hS9gZ5HK4rZBCIhWqRTFRhEEmwRCLJQQUBGO979mdBh3c05n/Pcb+Lj3sLNzBu43m22y2tm7PQE4sJoIwiRWt+7vTgAOIDPYgMxgAzKDDcgMNiAz2IDMYAMygw3IDDYgM9iAzGADMoMNyAw2IDPYgMxgAzKDDcgMNiDzFXfX+9PF18ur/1n4Fd9+fJ8ePDto5v9L3p193PZ38OKwuT4qyLxBUrTkeH3y/sbJrKH7dPl5O3iSupUzKsPLfOfRven0y/l/I4YGTv2u3zzdCi25W3kjMrzMcb14/uFlc/0mEYOnXqNvrhp/4JqxQafyklNOEuXId2pJ1bpjt07+WmfpIKm2+ox3qKZq6x05L0TPMYL0yLwh//g9sZQjebI4eQiiRt0v8SR5yFQHJ9aXCK2cLG9rgFp9KA+ZB0OiRSyRa8lJmQWsYuecLHgL7Ved3FdL3NrTSCBzg5Ban3VNItYIOausVcAsdtQTyq8nbKWXUwcoBJ8bDkeQuUNIW0XNkvTkjSGoAsaQtGJO5uv2KqIHEX1E5DVnkLlDFrNKGlSZRb4yKD/v6Z3Mc7SuE3Wt9hZoj6K11w1k7hACS4KezCFKljnkevL2ePuZ1/R97gRuMbdPfcQAtdbrULkyvMwSQKJWEfTjZ0Hqc5zKVebIVdRTOIaiiqdakj+eM7Gn1srkvxC1lt6j93EyD0D82DV6Ikbo+8Pj9V/XDKFnRU+gkD2iyp0JUa+TMQv/+NXR7yGLGEFkwTUDbEBmsAGZwQZkBhuQGWxAZrABmcEGZAYbkBlsQGawAZnBBmQGG5AZbEBmsAGZwYTd6SdaBpAt+cmpFAAAAABJRU5ErkJggg==" InformativeScreenshot="c0611f5e2071cf3d8a5ce1a1f79dc883.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Control de licencias RPA.xlsx' /&gt;" SearchSteps="FuzzySelector, Image" />
                   </uix:NClick.Target>
                 </uix:NClick>
-                <uix:NClick ClickType="Single" DisplayName="Click 'Download a Copy'" sap:VirtualizedContainerService.HintSize="760.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick ClickType="Single" DisplayName="Click 'Download a Copy'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://excel.officeapps.live.com/x/_layouts/xlviewerinternal.aspx?unified=1&amp;ui=en%2DUS&amp;rs=es%2DES&amp;wopisrc=https%3A%2F%2Flicenciasbdg2-my.sharepoint.com%2Fpersonal%2Fjmansilla_licenciasbdg2_onmicrosoft_com%2F_vti_bin%2Fwopi.ashx%2Ffiles%2F4fb085d26886498e9fe16a4543e5b257&amp;wdenableroaming=1&amp;mscc=0&amp;wdodb=1&amp;hid=D9F4C99F-C02C-0000-BEF9-7D018CE95776&amp;wdorigin=Sharing&amp;jsapi=1&amp;jsapiver=v1&amp;newsession=1&amp;corrid=62535d70-8b08-4be5-9c33-9e60f7d79ee2&amp;usid=62535d70-8b08-4be5-9c33-9e60f7d79ee2&amp;sftc=1&amp;mtf=1&amp;sfp=1&amp;wdredirectionreason=Force_SingleStepBoot&amp;rct=Medium&amp;ctp=LeastProtected" DesignTimeRectangle="335, 266, 604, 25" ElementType="Text" FriendlyName="'Download a Copy'" FullSelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl id='id__788' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WebApplicationFrame' tag='IFRAME' /&gt;&lt;webctrl id='id__788' tag='SPAN' type='' aaname='Download a Copy' check:text='Download a Copy' /&gt;" ImageBase64="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" InformativeScreenshot="223f1cdaf027eacf4040d0234ec88ed6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Control de licencias RPA.xlsx' /&gt;" SearchSteps="FuzzySelector, Image" />
                   </uix:NClick.Target>
                 </uix:NClick>
-                <ui:BuildDataTable DataTable="[dataDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="760.8,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Proveedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Cantidad_x0020_de_x0020_Licencias&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TIpo_x0020_de_x0020_licencia&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Codigo_x0020_de_x0020_licencia&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_Inicio&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_Fin&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Nombre_x0020_Vendedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo_x0020_Vendedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Nombre_x0020_Encargado_x0020_Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo_x0020_Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Cliente&gt;text&lt;/Cliente&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="760.8,2695.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="C:\Users\carlo\Downloads\Control de licencias RPA.xlsx">
-                  <ui:ExcelApplicationScope.Body>
-                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="727.2,2585.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExcelReadRange AddHeaders="True" DataTable="[dataDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="685.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Licencias">
-                          <ui:ExcelReadRange.Range>
-                            <InArgument x:TypeArguments="x:String">
-                              <Literal x:TypeArguments="x:String" Value="" />
-                            </InArgument>
-                          </ui:ExcelReadRange.Range>
-                        </ui:ExcelReadRange>
-                        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dataDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="685.6,2264.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-                          <ui:ForEachRow.Body>
-                            <ActivityAction x:TypeArguments="sd:DataRow">
-                              <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                              </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="652,2144" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Cliente&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="610.4,343.2" sap2010:WorkflowViewState.IdRef="If_1">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <If.Then>
-                                    <Sequence DisplayName="Sequence For Each Row" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="x:String">[clienteStr]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="x:String">[row.Item("Cliente").ToString]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                    </Sequence>
-                                  </If.Then>
-                                  <If.Else>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:Object">[row.Item("Cliente")]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:Object">[clienteStr]</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </If.Else>
-                                </If>
-                                <If Condition="[row.Item(&quot;Fecha Fin&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="610.4,1668" sap2010:WorkflowViewState.IdRef="If_2">
-                                  <If.Then>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="524.8,1488.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                                      <Sequence.Variables>
-                                        <Variable x:TypeArguments="x:Double" Name="dateDifference" />
-                                      </Sequence.Variables>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="s:DateTime">[currentTime]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="s:DateTime">[Date.Now]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                      <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="x:TimeSpan">[dateAux]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="x:TimeSpan">[DateTime.Parse(row.Item("Fecha Fin").ToString).Subtract(currentTIme)]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                      <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="x:Double">[dateDifference]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="x:Double">[dateAux.Days / 30.6]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                      <If Condition="[dateDifference &lt; 0 or dateDifference &lt; 5.00]" sap:VirtualizedContainerService.HintSize="483.2,1096" sap2010:WorkflowViewState.IdRef="If_3">
-                                        <If.Then>
-                                          <Sequence sap:VirtualizedContainerService.HintSize="416.8,916.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence sap:VirtualizedContainerService.HintSize="375.2,824" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                                              <Sequence.Variables>
-                                                <Variable x:TypeArguments="x:String" Name="fechaVenta" />
-                                                <Variable x:TypeArguments="x:String" Name="cliente" />
-                                                <Variable x:TypeArguments="x:String" Name="contacto" />
-                                                <Variable x:TypeArguments="x:String" Name="telefono" />
-                                                <Variable x:TypeArguments="x:String" Name="correo" />
-                                                <Variable x:TypeArguments="x:String" Name="vendedor" />
-                                                <Variable x:TypeArguments="x:String" Name="componente" />
-                                                <Variable x:TypeArguments="x:String" Name="tipoLicencia" />
-                                                <Variable x:TypeArguments="x:String" Name="cantidad" />
-                                                <Variable x:TypeArguments="x:String" Name="fechaActivacion" />
-                                                <Variable x:TypeArguments="x:String" Name="fechaVencimiento" />
-                                                <Variable x:TypeArguments="x:String" Name="diasPendientes" />
-                                                <Variable x:TypeArguments="x:String" Name="numLicencia" />
-                                                <Variable x:TypeArguments="x:String" Name="comentarios" />
-                                                <Variable x:TypeArguments="x:String" Name="numInv" />
-                                              </Sequence.Variables>
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,536" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-                                                <ui:MultipleAssign.AssignOperations>
-                                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[fechaVenta]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Fecha Inicio").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[cliente]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[clienteStr]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[contacto]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Nombre Encargado Cliente ").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[telefono]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">56984523</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[correo]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Correo Cliente").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[vendedor]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Proveedor").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[componente]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">Licencia</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[tipoLicencia]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Tipo de licencia").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[cantidad]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Cantidad de licencias").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[fechaActivacion]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Fecha Inicio").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[fechaVencimiento]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Fecha Fin").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[diasPendientes]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[dateDifference.ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[numLicencia]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">[row.Item("Codigo de licencia").ToString]</InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[comentarios]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">
-                                                          <Literal x:TypeArguments="x:String" Value="" />
-                                                        </InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
-                                                      <ui:AssignOperation.To>
-                                                        <OutArgument x:TypeArguments="x:String">[numInv]</OutArgument>
-                                                      </ui:AssignOperation.To>
-                                                      <ui:AssignOperation.Value>
-                                                        <InArgument x:TypeArguments="x:String">
-                                                          <Literal x:TypeArguments="x:String" Value="" />
-                                                        </InArgument>
-                                                      </ui:AssignOperation.Value>
-                                                    </ui:AssignOperation>
-                                                  </scg:List>
-                                                </ui:MultipleAssign.AssignOperations>
-                                              </ui:MultipleAssign>
-                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{fechaVenta, cliente, contacto, telefono, correo, vendedor, componente, tipoLicencia, cantidad, fechaActivacion, fechaVencimiento, diasPendientes, numLicencia, comentarios, numInv}]" DataTable="[historial]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[historial]" />
-                                            </Sequence>
-                                          </Sequence>
-                                        </If.Then>
-                                      </If>
-                                    </Sequence>
-                                  </If.Then>
-                                </If>
-                              </Sequence>
-                            </ActivityAction>
-                          </ui:ForEachRow.Body>
-                        </ui:ForEachRow>
-                        <ui:ExcelAppendRange DataTable="[historial]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="685.6,88" sap2010:WorkflowViewState.IdRef="ExcelAppendRange_1" SheetName="Historial" />
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:ExcelApplicationScope.Body>
-                </ui:ExcelApplicationScope>
               </Sequence>
             </Switch>
           </Sequence>
@@ -483,10 +208,379 @@
       </uix:NApplicationCard.TargetApp>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="744,3100" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="C:\Users\Anthony\Downloads\Control de licencias RPA.xlsx">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="710,2991" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="historial" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:BuildDataTable DataTable="[historial]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="668,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_venta&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Contacto&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Teléfono&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Vendedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Componente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;tipo_x0020_licencia_x0020_o_x0020_servicio&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;500&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Cantidad&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_de_x0020_activación&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_de_x0020_vencimiento&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;días_x0020_pendientes&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;_x0023__x0020_Licencia&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Comentarios&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_No.&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:BuildDataTable DataTable="[dataDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="668,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_4" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Proveedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Cantidad_x0020_de_x0020_Licencias&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TIpo_x0020_de_x0020_licencia&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Codigo_x0020_de_x0020_licencia&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_Inicio&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Fecha_x0020_Fin&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Nombre_x0020_Vendedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo_x0020_Vendedor&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Nombre_x0020_Encargado_x0020_Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Correo_x0020_Cliente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Cliente&gt;text&lt;/Cliente&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[dataDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="668,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="Licencias">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dataDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="668,2475" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="634,2356" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Cliente&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="592,82" sap2010:WorkflowViewState.IdRef="If_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Sequence For Each Row" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[clienteStr]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[row.Item("Cliente").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[row.Item("Cliente")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object">[clienteStr]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </If.Else>
+                    </If>
+                    <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Proveedor&quot;).ToString &lt;&gt; &quot;&quot;]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="592,82" sap2010:WorkflowViewState.IdRef="If_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Sequence For Each Row" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[proveedorStr]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[row.Item("Proveedor").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[row.Item("Proveedor")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object">[proveedorStr]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </If.Else>
+                    </If>
+                    <If Condition="[row.Item(&quot;Fecha Fin&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="592,2020" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="556,1844" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:Double" Name="dateDifference" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="514,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[currentTime]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[Date.Now]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="514,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:TimeSpan">[dateAux]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:TimeSpan">[DateTime.Parse(row.Item("Fecha Fin").ToString).Subtract(currentTIme)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="514,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[dateDifference]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double">[dateAux.Days / 30.6]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <If Condition="[dateDifference &lt; 0 or dateDifference &lt; 5.00]" sap:VirtualizedContainerService.HintSize="514,1452" sap2010:WorkflowViewState.IdRef="If_5">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="478,1276" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="fechaVenta" />
+                                  <Variable x:TypeArguments="x:String" Name="cliente" />
+                                  <Variable x:TypeArguments="x:String" Name="contacto" />
+                                  <Variable x:TypeArguments="x:String" Name="telefono" />
+                                  <Variable x:TypeArguments="x:String" Name="correo" />
+                                  <Variable x:TypeArguments="x:String" Name="vendedor" />
+                                  <Variable x:TypeArguments="x:String" Name="componente" />
+                                  <Variable x:TypeArguments="x:String" Name="tipoLicencia" />
+                                  <Variable x:TypeArguments="x:String" Name="cantidad" />
+                                  <Variable x:TypeArguments="x:String" Name="fechaActivacion" />
+                                  <Variable x:TypeArguments="x:String" Name="fechaVencimiento" />
+                                  <Variable x:TypeArguments="x:String" Name="diasPendientes" />
+                                  <Variable x:TypeArguments="x:String" Name="numLicencia" />
+                                  <Variable x:TypeArguments="x:String" Name="comentarios" />
+                                  <Variable x:TypeArguments="x:String" Name="numInv" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="436,532" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[fechaVenta]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Fecha Inicio").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[cliente]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[clienteStr]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[contacto]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Nombre Encargado Cliente ").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[telefono]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">56984523</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[correo]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Correo Cliente").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[vendedor]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Proveedor").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[componente]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">Licencia</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[tipoLicencia]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Tipo de licencia").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[cantidad]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Cantidad de licencias").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[fechaActivacion]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Fecha Inicio").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[fechaVencimiento]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Fecha Fin").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[diasPendientes]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[dateDifference.ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[numLicencia]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Codigo de licencia").ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[comentarios]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">
+                                            <Literal x:TypeArguments="x:String" Value="" />
+                                          </InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[numInv]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">
+                                            <Literal x:TypeArguments="x:String" Value="" />
+                                          </InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{fechaVenta, cliente, contacto, telefono, correo, vendedor, componente, tipoLicencia, cantidad, fechaActivacion, fechaVencimiento, diasPendientes, numLicencia, comentarios, numInv}]" DataTable="[historial]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[historial]" />
+                                <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="436,64" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[cuerpoCorreo]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;" + _
+ "&lt;body&gt;" + _
+"&lt;H1  style=' color : #1f497d;'&gt;NOTIFICACIÓN DE LICENCIA BDG, S.A.&lt;/H1&gt;" + _
+"&lt;table Class='Default' style=' color : #1f497d;' border=2&gt;" + _
+"&lt;tr&gt;" + _
+"&lt;td&gt;Codigo de Liecencia&lt;/td&gt;" + _
+"&lt;td&gt;Proveedor&lt;/td&gt;" + _
+"&lt;td&gt;Tipo de Licencia&lt;/td&gt;" + _
+"&lt;td&gt;Fecha de Inicio&lt;/td&gt;" + _
+"&lt;td&gt;Fecha de Fin&lt;/td&gt;" + _
+"&lt;/tr&gt;" + _
+"&lt;tr&gt;" + _
+String.Format( 
+"&lt;td&gt;{0}&lt;/td&gt;" + _
+"&lt;td&gt;{1}&lt;/td&gt;" + _
+"&lt;td&gt;{2}&lt;/td&gt;" + _
+"&lt;td&gt;{3}&lt;/td&gt;" + _
+"&lt;td&gt;{4}&lt;/td&gt;" + _
+"&lt;/tr&gt;" + _
+"&lt;/table&gt;", row.Item("Codigo de licencia"), proveedorStr, row.Item("Tipo de licencia"), proveedorStr, row.Item("Fecha Inicio"), proveedorStr, row.Item("Fecha Fin")) + _
+"&lt;br&gt;" + _
+"&lt;div id='nombre' style=' color : #B91D1D;'&gt;" + _
+"Anthony Son &amp;" + _
+"Carlos Ojani" + _
+"&lt;/div&gt;" + _
+"&lt;div id='puesto' style=' color : #ADADAD;'&gt;" + _
+"Programa Trainee" + _
+"&lt;/div&gt;" + _
+"&lt;img src='https://export.com.gt/attach/componentes/slider-infinito/slider-infinito-5-5c192fafb3128.jpg' style='width:2.625in;height:.6354in'&gt;" + _
+"&lt;/body&gt;" + _
+"&lt;/html&gt;"]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:CommentOut DisplayName="Comentar" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[cuerpoCorreo]" DisplayName="Enviar mensaje de correo de Outlook" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="Notificación de Licencia" To="[correo]">
+                                        <ui:SendOutlookMail.Files>
+                                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                        </ui:SendOutlookMail.Files>
+                                      </ui:SendOutlookMail>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </If.Then>
+                          </If>
+                        </Sequence>
+                      </If.Then>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <ui:ExcelAppendRange DataTable="[historial]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="668,87" sap2010:WorkflowViewState.IdRef="ExcelAppendRange_2" SheetName="Historial" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
   </Sequence>
 </Activity>
