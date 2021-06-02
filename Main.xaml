@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="770.4,3880" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="866.4,3761.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
       <x:String>System.Activities</x:String>
@@ -88,7 +88,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="780.8,3775.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="780.8,3696.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:UiElement" Name="varBrowser" />
       <Variable x:TypeArguments="x:String" Name="clienteStr" />
@@ -110,7 +110,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="538.4,1800" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="538.4,1840" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="historial" />
             </Sequence.Variables>
@@ -120,7 +120,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InjectJsScript InputParameter="{x:Null}" DisplayName="Inject Js Script 'push button'" sap:VirtualizedContainerService.HintSize="496.8,135.2" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" ScriptCode="function languaje (){&#xA;&#x9;return  window.navigator.language || navigator.browserLanguage;&#xA;}">
+            <ui:InjectJsScript InputParameter="{x:Null}" DisplayName="Inject Js Script 'push button'" sap:VirtualizedContainerService.HintSize="496.8,135.2" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" ScriptCode="function languaje (){&#xD;&#xA;&#x9;return  window.navigator.language || navigator.browserLanguage;&#xD;&#xA;}">
               <ui:InjectJsScript.ScriptOutput>
                 <OutArgument x:TypeArguments="x:String">[salidaJS]</OutArgument>
               </ui:InjectJsScript.ScriptOutput>
@@ -213,13 +213,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="739.2,3589.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="C:\Users\carlo\Downloads\Control de licencias RPA.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="739.2,3511.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="C:\Users\carlo\Downloads\Control de licencias RPA.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="705.6,3480" sap2010:WorkflowViewState.IdRef="Sequence_24">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="705.6,3401.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="historial" />
             </Sequence.Variables>
@@ -237,19 +237,19 @@
                 </InArgument>
               </ui:ExcelReadRange.Range>
             </ui:ExcelReadRange>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dataDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="664,2959.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dataDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="940,3080" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="630.4,2838.4" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="906.4,2959.2" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Cliente&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="588.8,84" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Cliente&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="864.8,84" sap2010:WorkflowViewState.IdRef="If_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -258,13 +258,13 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Sequence For Each Row" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence DisplayName="Sequence For Each Row" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[clienteStr]</OutArgument>
                             </Assign.To>
@@ -275,7 +275,7 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_7">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[row.Item("Cliente")]</OutArgument>
                           </Assign.To>
@@ -285,7 +285,7 @@
                         </Assign>
                       </If.Else>
                     </If>
-                    <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Proveedor&quot;).ToString &lt;&gt; &quot;&quot;]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="588.8,84" sap2010:WorkflowViewState.IdRef="If_7">
+                    <If sap2010:Annotation.AnnotationText="" Condition="[row.Item(&quot;Proveedor&quot;).ToString &lt;&gt; &quot;&quot;]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="864.8,84" sap2010:WorkflowViewState.IdRef="If_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -321,9 +321,9 @@
                         </Assign>
                       </If.Else>
                     </If>
-                    <If Condition="[row.Item(&quot;Fecha Fin&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="588.8,2497.6" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If Condition="[row.Item(&quot;Fecha Fin&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="864.8,2618.4" sap2010:WorkflowViewState.IdRef="If_6">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="553.6,2318.4" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                        <Sequence sap:VirtualizedContainerService.HintSize="829.6,2439.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:Double" Name="dateDifference" />
                           </Sequence.Variables>
@@ -332,7 +332,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign sap:VirtualizedContainerService.HintSize="788,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                             <Assign.To>
                               <OutArgument x:TypeArguments="s:DateTime">[currentTime]</OutArgument>
                             </Assign.To>
@@ -340,7 +340,7 @@
                               <InArgument x:TypeArguments="s:DateTime">[Date.Now]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                          <Assign sap:VirtualizedContainerService.HintSize="788,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:TimeSpan">[dateAux]</OutArgument>
                             </Assign.To>
@@ -348,7 +348,7 @@
                               <InArgument x:TypeArguments="x:TimeSpan">[DateTime.Parse(row.Item("Fecha Fin").ToString).Subtract(currentTIme)]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                          <Assign sap:VirtualizedContainerService.HintSize="788,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Double">[dateDifference]</OutArgument>
                             </Assign.To>
@@ -356,9 +356,9 @@
                               <InArgument x:TypeArguments="x:Double">[dateAux.Days / 30.6]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <If Condition="[dateDifference &lt; 0 or dateDifference &lt; 5.00]" sap:VirtualizedContainerService.HintSize="512,1925.6" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If Condition="[dateDifference &lt; 0 or dateDifference &lt; 2.00]" sap:VirtualizedContainerService.HintSize="788,2046.4" sap2010:WorkflowViewState.IdRef="If_5">
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="476.8,1746.4" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                              <Sequence sap:VirtualizedContainerService.HintSize="752.8,1867.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:String" Name="fechaVenta" />
                                   <Variable x:TypeArguments="x:String" Name="cliente" />
@@ -382,7 +382,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                <Assign sap:VirtualizedContainerService.HintSize="711.2,60" sap2010:WorkflowViewState.IdRef="Assign_14">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Int32">[rowIndex]</OutArgument>
                                   </Assign.To>
@@ -390,9 +390,9 @@
                                     <InArgument x:TypeArguments="x:Int32">[dataDT.Rows.IndexOf(row)]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[rowIndex]" />
-                                <ui:ExcelInsertDeleteRows DisplayName="Insert/Delete Rows" sap:VirtualizedContainerService.HintSize="435.2,188" sap2010:WorkflowViewState.IdRef="ExcelInsertDeleteRows_1" Mode="Remove" NoRows="1" Position="[rowIndex]" SheetName="Licencias" />
-                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="435.2,536" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="711.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[rowIndex]" />
+                                <ui:ExcelInsertDeleteRows DisplayName="Insert/Delete Rows" sap:VirtualizedContainerService.HintSize="711.2,188" sap2010:WorkflowViewState.IdRef="ExcelInsertDeleteRows_1" Mode="Remove" NoRows="1" Position="[rowIndex]" SheetName="Licencias" />
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="711.2,536" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                                   <ui:MultipleAssign.AssignOperations>
                                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
@@ -522,9 +522,9 @@
                                     </scg:List>
                                   </ui:MultipleAssign.AssignOperations>
                                 </ui:MultipleAssign>
-                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{fechaVenta, cliente, contacto, telefono, correo, vendedor, componente, tipoLicencia, cantidad, fechaActivacion, fechaVencimiento, diasPendientes, numLicencia, comentarios, numInv}]" DataTable="[historial]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="435.2,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[historial]" />
-                                <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="435.2,64" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{fechaVenta, cliente, contacto, telefono, correo, vendedor, componente, tipoLicencia, cantidad, fechaActivacion, fechaVencimiento, diasPendientes, numLicencia, comentarios, numInv}]" DataTable="[historial]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="711.2,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="711.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[historial]" />
+                                <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="711.2,64" sap2010:WorkflowViewState.IdRef="Assign_13">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[cuerpoCorreo]</OutArgument>
                                   </Assign.To>
@@ -532,6 +532,7 @@
                                     <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;" + _
  "&lt;body&gt;" + _
 "&lt;H1  style=' color : #1f497d;'&gt;NOTIFICACIÓN DE LICENCIA BDG, S.A.&lt;/H1&gt;" + _
+"&lt;p&gt; Su licencia está a punto de caducar, o ya venció. Por favor, contacte a su proveedor. &lt;/p&gt;" + _
 "&lt;table Class='Default' style=' color : #1f497d;' border=2&gt;" + _
 "&lt;tr&gt;" + _
 "&lt;td&gt;Codigo de Liecencia&lt;/td&gt;" + _
@@ -548,7 +549,7 @@ String.Format(
 "&lt;td&gt;{3}&lt;/td&gt;" + _
 "&lt;td&gt;{4}&lt;/td&gt;" + _
 "&lt;/tr&gt;" + _
-"&lt;/table&gt;", row.Item("Codigo de licencia"), proveedorStr, row.Item("Tipo de licencia"), proveedorStr, row.Item("Fecha Inicio"), proveedorStr, row.Item("Fecha Fin")) + _
+"&lt;/table&gt;", row.Item("Codigo de licencia"), proveedorStr, row.Item("Tipo de licencia"),row.Item("Fecha Inicio"), row.Item("Fecha Fin")) + _
 "&lt;br&gt;" + _
 "&lt;div id='nombre' style=' color : #B91D1D;'&gt;" + _
 "Anthony Son &amp;" + _
@@ -562,22 +563,23 @@ String.Format(
 "&lt;/html&gt;"]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <ui:CommentOut DisplayName="Comentar" sap:VirtualizedContainerService.HintSize="435.2,317.6" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                                  <ui:CommentOut.Body>
-                                    <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="375.2,239.2" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[cuerpoCorreo]" DisplayName="Enviar mensaje de correo de Outlook" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="Notificación de Licencia" To="[row.item(&quot;Correo Cliente&quot;).ToString]">
-                                        <ui:SendOutlookMail.Files>
-                                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                                        </ui:SendOutlookMail.Files>
-                                      </ui:SendOutlookMail>
-                                    </Sequence>
-                                  </ui:CommentOut.Body>
-                                </ui:CommentOut>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="711.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[row.Item(&quot;Correo Vendedor&quot;).ToString]" />
+                                <If Condition="[row.Item(&quot;Correo Vendedor&quot;).ToString &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="711.2,305.6" sap2010:WorkflowViewState.IdRef="If_8">
+                                  <If.Then>
+                                    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[cuerpoCorreo]" DisplayName="Enviar mensaje de correo de Outlook" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="Notificación de Licencia" To="[row.Item(&quot;Correo Vendedor&quot;).ToString + &quot;;jmansilla@bdgsa.net&quot;]">
+                                      <ui:SendOutlookMail.Files>
+                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                      </ui:SendOutlookMail.Files>
+                                    </ui:SendOutlookMail>
+                                  </If.Then>
+                                  <If.Else>
+                                    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[cuerpoCorreo]" DisplayName="Enviar mensaje de correo de Outlook" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="Notificación de Licencia" To="crios@bdgsa.net ;jmansilla@bdgsa.net">
+                                      <ui:SendOutlookMail.Files>
+                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                      </ui:SendOutlookMail.Files>
+                                    </ui:SendOutlookMail>
+                                  </If.Else>
+                                </If>
                               </Sequence>
                             </If.Then>
                           </If>
