@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "/2lf9E3GNwtVx42GnkCQAwV2iTvat7ZiBeZnUiD3qwgyj8Prm4EscIHJYlfNQ8O+Z/ojc9XjnuVt+s/mE1Pv1Q==",
+=======
+  "dgSpecHash": "EMSUcWTcTNXK2jrcnlDtPufo0U1DJGgabIT1z/IsFfhwVgC7MmyMbuxcwj/ZLHN/nnyVvTaG0Kc7+BohSXz2yg==",
+>>>>>>> 1376371834053c35612b274b046ca31668f74a38
   "success": true,
   "projectFilePath": "C:\\Users\\carlo\\Documents\\UiPath\\BDG-Final\\.local\\",
   "expectedPackageFiles": [
