@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "/2lf9E3GNwtVx42GnkCQAwV2iTvat7ZiBeZnUiD3qwgyj8Prm4EscIHJYlfNQ8O+Z/ojc9XjnuVt+s/mE1Pv1Q==",
-=======
-  "dgSpecHash": "EMSUcWTcTNXK2jrcnlDtPufo0U1DJGgabIT1z/IsFfhwVgC7MmyMbuxcwj/ZLHN/nnyVvTaG0Kc7+BohSXz2yg==",
->>>>>>> 1376371834053c35612b274b046ca31668f74a38
   "success": true,
   "projectFilePath": "C:\\Users\\carlo\\Documents\\UiPath\\BDG-Final\\.local\\",
   "expectedPackageFiles": [
@@ -74,5 +70,13 @@
     "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\uipath.uiautomation.activities.21.4.4.nupkg.sha512",
     "C:\\Users\\carlo\\.nuget\\packages\\uipath.vision\\3.0.1\\uipath.vision.3.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\carlo\\Documents\\UiPath\\BDG-Final\\.local",
+      "message": "Problem reading the cache file C:\\Users\\carlo\\Documents\\UiPath\\BDG-Final\\.local\\nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

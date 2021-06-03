@@ -5056,5 +5056,13 @@
         "runtimeIdentifierGraphPath": "C:\\Users\\carlo\\AppData\\Local\\UiPath\\app-21.4.4\\runtime.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\carlo\\Documents\\UiPath\\BDG-Final\\.local\\nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

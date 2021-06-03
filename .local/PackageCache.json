@@ -48,8 +48,8 @@
         "C:\\Users\\carlo\\.nuget\\packages\\system.buffers/4.5.1\\lib/net461/System.Buffers.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.Package.dll",
+        "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.dll"
       ],
       "Path": "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5"
@@ -126,12 +126,12 @@
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.CV.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.CV.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomation.Activities.Design.dll",
-        "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomation.Activities.Package.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationCore.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationNext.Activities.Design.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationNext.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationNext.dll",
+        "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.Wizards.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.Core.dll",
@@ -1557,8 +1557,8 @@
       },
       "Assemblies": [
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.Package.dll",
+        "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.dll"
       ],
       "Path": "C:\\Users\\carlo\\.nuget\\packages\\uipath.mail.activities\\1.10.5"
@@ -1627,12 +1627,12 @@
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.CV.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.CV.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomation.Activities.Design.dll",
-        "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomation.Activities.Package.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationCore.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationNext.Activities.Design.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationNext.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationNext.dll",
+        "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.Wizards.dll"
       ],
       "Path": "C:\\Users\\carlo\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4"
